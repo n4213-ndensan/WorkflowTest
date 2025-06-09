@@ -13,6 +13,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Call Test Action
-        uses: ./.github/actions/testaction.yml
+        uses: ./.github/actions/testaction
         with:
           test_flag: ${{ github.event.inputs.test_flag }}
