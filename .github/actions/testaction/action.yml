@@ -10,13 +10,16 @@ runs:
   using: 'composite'
   steps:
     - name: Run Tests
+      shell: bash
       run: |
         echo "Running tests with flag: ${{ inputs.test_flag }}"
     - name: thrugh when true
+      shell: bash
       if: ${{ inputs.test_flag == false }}
       run: |
         echo "Now test_flag is false"
     - name: thrugh when false
+      shell: bash
       if: ${{ inputs.test_flag == true }}
       run: |
         echo "Now test_flag is true"
