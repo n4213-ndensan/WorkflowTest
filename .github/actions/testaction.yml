@@ -1,0 +1,22 @@
+name: Test Action
+description: A GitHub Action to run tests
+inputs:
+  test_flag:
+    description: 'Flag to run tests'
+    required: false
+    default: ${{ false }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run Tests
+      run: |
+        echo "Running tests with flag: ${{ inputs.test_flag }}"
+    - name: thrugh when true
+      if: ${{ inputs.test_flag == false }}
+      run: |
+        echo "Now test_flag is false"
+    - name: thrugh when false
+      if: ${{ inputs.test_flag == true }}
+      run: |
+        echo "Now test_flag is true"

@@ -1,0 +1,16 @@
+name: Call Test Action
+on:
+  workflow_dispatch:
+    inputs:
+      test_flag:
+        description: 'Flag to run tests'
+        required: false
+        default: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Test Action
+        uses: ./.github/actions/testaction
+        with:
+          test_flag: ${{ github.event.inputs.test_flag }}
